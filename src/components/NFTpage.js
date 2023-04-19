@@ -58,6 +58,8 @@ async function buyNFT(tokenId) {
         let transaction = await contract.executeSale(tokenId, {value:salePrice});
         await transaction.wait();
 
+        //prova
+
         alert('You successfully bought the NFT!');
         updateMessage("");
     }
