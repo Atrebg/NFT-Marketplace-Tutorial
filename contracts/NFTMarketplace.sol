@@ -5,6 +5,8 @@ import "hardhat/console.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "./risk.sol";
+
 
 contract NFTMarketplace is ERC721URIStorage {
 
@@ -158,7 +160,10 @@ contract NFTMarketplace is ERC721URIStorage {
     function executeSale(uint256 tokenId) public payable {
         uint price = idToListedToken[tokenId].price;
         address seller = idToListedToken[tokenId].seller;
+        //int risk = requestRiskData();
         require(msg.value == price, "Please submit the asking price in order to complete the purchase");
+
+        //require(risk <= 50, "Warning the risk of this transaction is too high you are unable to buy this NFT);
 
         //update the details of the token
         idToListedToken[tokenId].currentlyListed = true;
@@ -175,6 +180,11 @@ contract NFTMarketplace is ERC721URIStorage {
         //Transfer the proceeds from the sale to the seller of the NFT
         payable(seller).transfer(msg.value);
     }
+
+    /*
+
+    */
+    
 
     //We might add a resell token function in the future
     //In that case, tokens won't be listed by default but users can send a request to actually list a token

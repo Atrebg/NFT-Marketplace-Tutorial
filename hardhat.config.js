@@ -26,8 +26,8 @@ module.exports = {
       //accounts: [process.env.privateKey]
     },
     goerli: {
-      url: process.env.REACT_APP_ALCHEMY_API_URL,
-      accounts: [ process.env.REACT_APP_PRIVATE_KEY ]
+      url: "https://eth-goerli.g.alchemy.com/v2/MklFFRFiD9Zinhbk7fztaj1Blx3ou9pM",
+      accounts: [ "2b36e0f7e53c6a9f146a0557f174fcb173fc51cf20ec9d439dc049c0f49975ac" ]
     }
   },
   solidity: {
